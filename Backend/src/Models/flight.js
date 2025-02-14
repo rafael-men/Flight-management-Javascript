@@ -38,7 +38,7 @@ const Flight = sequelize.define("Flight", {
     }
 }, {
     tableName: "flights",
-    timestamps: true
+    timestamps: false
 })
 
 module.exports = Flight
