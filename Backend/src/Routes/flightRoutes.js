@@ -1,10 +1,16 @@
 const express = require('express')
-const { getFlights, getFlightById,createFlight} = require('../Controllers/flightController')
+const { getFlights, getFlightById,createFlight, updateFlight, deleteFlight, patchFlight} = require('../Controllers/flightController')
+const authMiddleware = require('../Security/authMiddleware')
 
 const router = express.Router()
 
-router.get('/flights',getFlights)
-router.get('/flights/:id',getFlightById)
-router.post('/flights/new',createFlight)
+router.use(authMiddleware)
+
+router.get('/flights',authMiddleware,getFlights)
+router.get('/flights/:id',authMiddleware,getFlightById)
+router.post('/flights/new',authMiddleware,createFlight)
+router.put('/flights/:id',authMiddleware,updateFlight)
+router.delete('/flights/deletar/:id',authMiddleware,deleteFlight)
+router.patch('/flights/atualizarParcialmente/:id',authMiddleware,patchFlight)
 
 module.exports = router

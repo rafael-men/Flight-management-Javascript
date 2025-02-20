@@ -50,4 +50,50 @@ const createFlight = async (req,res) => {
     }
 }
 
-module.exports = { getFlights, getFlightById,createFlight}
+const updateFlight = async (req,res) => {
+    try {
+        const flight = await Flight.findByPk(req.params.id)
+        if(!flight) {
+            throw new Error('Vôo não encontrado')
+        }
+
+        validateData(req,res,async () => {
+            await flight.update(req.body)
+            res.json(flight)
+        })
+    } catch(err) {
+        console.error('Erro ao atualizar vôo')
+        res.status(err.message == 'Vôo não cadastrado no sistema' ? 404 : 400).json({error: err.message})
+    }
+}
+
+const deleteFlight = async (req,res) => {
+    try {
+        const flight = await Flight.findByPk(req.params.id)
+        if(!flight) {
+            throw new Error('Vôo não encontrado')
+        }
+        await flight.destroy()
+        res.status(204).send()
+    }
+    catch(err) {
+        console.log('Erro ao excluir vôo: ',err)
+        res.status(err.message == 'Vôo não cadastrado no sistema' ? 404 : 500).json({error: err.message})
+    }
+}
+
+const patchFlight = async (req,res) => {
+    try {
+        const flight = await Flight.findByPk(req.params.id)
+        if(!flight) {
+            throw new Error('Vôo não encontrado')
+        }
+        await flight.update(req.body,{fields: Object.keys(req.body)})
+    }
+    catch (err) {
+        console.error('Erro ao atualizar parcialmente esse vôo')
+        res.status(err.message === 'Vôo não encontrado' ? 404 : 400).json({error:err.message})
+    }
+}
+
+module.exports = { getFlights, getFlightById,createFlight,updateFlight,deleteFlight,patchFlight}

@@ -30,7 +30,7 @@ const Flight = sequelize.define("Flight", {
         allowNull: false
     },
     status: {
-        type:DataTypes.ENUM("PREVISTO","ATRASADO","CANCELADO","EMBARQUE ENCERRADO","DESEMBARQUE INICIADO")
+        type:DataTypes.ENUM("PREVISTO","ATRASADO","CANCELADO","EMBARQUE IMEDIATO","EMBARQUE INICIADO","ÚLTIMA CHAMADA","EMBARQUE ENCERRADO","DESEMBARQUE INICIADO")
     },
     seatsAvaliable: {
         type: DataTypes.INTEGER,

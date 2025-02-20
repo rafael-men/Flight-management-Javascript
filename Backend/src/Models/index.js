@@ -1,13 +1,23 @@
 const sequelize = require('../Config/database')
-const Flight = require('./flight') 
+const Flight = require('./flight')
+const User = require('./user')
 
-const syncDB = async () => {
+const syncDBflights = async () => {
     try {
-        await sequelize.sync({ force: false })
-        console.log("Banco de dados sincronizado com sucesso!")
+        await Flight.sync({ alter: true });
+        console.log("Tabela 'flights' sincronizada com sucesso!")
     } catch (error) {
-        console.error("Erro ao sincronizar banco de dados:", error)
+        console.error("Erro ao sincronizar a tabela 'flights':", error)
+    }
+}
+
+const syncDBusers = async () => {
+    try {
+        await User.sync({ alter: true })
+        console.log("Tabela 'users' sincronizada com sucesso!")
+    } catch (error) {
+        console.error("Erro ao sincronizar a tabela 'users':", error)
     }
 };
 
-module.exports = { sequelize, Flight, syncDB }
+module.exports = { sequelize, Flight, User, syncDBflights, syncDBusers }
