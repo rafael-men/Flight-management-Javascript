@@ -4,6 +4,15 @@ const {register,login} = require('../Controllers/authController')
 
 const router = express.Router()
 
+
+/**
+ * @swagger
+ * /register:
+ *   post:
+ *     summary: Registra um novo usuário
+ *     tags: [Autenticação]
+ *     security: [] 
+ */
 router.post(
     '/register',[
         check('name','o nome é obrigatório').not().isEmpty(),
@@ -13,6 +22,14 @@ router.post(
     register
 )
 
+/**
+ * @swagger
+ * /login:
+ *   post:
+ *     summary: Autentica um usuário e retorna um token JWT
+ *     tags: [Autenticação]
+ *     security: [] 
+ */
 router.post('/login',login)
 
 module.exports = router
