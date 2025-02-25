@@ -1,3 +1,11 @@
 body {
     font-family: 'Oswald', sans-serif;
 }
+
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Remove rolagem horizontal indesejada */
+    background-color: #f8f9fa; /* Cor de fundo padrão caso a imagem não carregue */
+}

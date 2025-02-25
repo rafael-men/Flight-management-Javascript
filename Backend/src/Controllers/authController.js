@@ -32,7 +32,7 @@ const login = async (req,res) => {
         if(!isMatch) {
             return res.status(401).json({error: 'Dados Inválidos'})
         }
-        const token = jwt.sign({id:user.id,email: user.email},process.env.JWT_SECRET,{
+        const token = jwt.sign({id:user.id,name:user.name,email: user.email},process.env.JWT_SECRET,{
             expiresIn:'1h',
         })
 
