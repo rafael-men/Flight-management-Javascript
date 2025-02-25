@@ -5,6 +5,8 @@ import authService from '../services/authService'
 import axios from 'axios'
 import FlightCard from '../components/FlightCard'
 
+
+
 const Home = () => {
   const [flights, setFlights] = useState([])
   const [username, setUsername] = useState('Usuário autenticado com sucesso')
@@ -51,21 +53,21 @@ const Home = () => {
 
   return (
     <div className="container-fluid mt-1" style={{ 
-        backgroundImage: "url('https://www.airport-technology.com/wp-content/uploads/sites/14/2022/01/shutterstock_758602234-min-scaled-e1641297696653.jpg')",
+        backgroundImage: "url('https://wallpapers.com/images/hd/minimalist-aero-airplanes-utiaoigq834k5nsp.jpg')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         minHeight: '100vh',
         padding: '20px'
     }}>
-        <div className="d-flex justify-content-between align-items-center">
-            <h1 className="mt-3">Olá {username}</h1>
+        <div className="d-flex justify-content-between text-white align-items-center">
+            <h1 className="mt-3">Olá {username}, seja bem vindo</h1>
             <button className="btn btn-outline-success" onClick={handleCreateFlight}>
                 Cadastrar Novo Vôo no Sistema
             </button>
         </div>
 
         <hr className="text-white" />
-
+        <h1 className="text-center text-white mb-5 mt-2">Programação do dia</h1>
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             {flights.map((flight) => (
                 <FlightCard key={flight.id} flight={flight} onDelete={handleDeleteFlight} />

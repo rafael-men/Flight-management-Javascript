@@ -16,7 +16,7 @@ export const FlightCard = ({flight,onDelete}) => {
     }
   return (
     <div className="col">
-        <div className="card shadow-sm">
+        <div className="card shadow-sm rounded-xl">
             <img src={flight.airlineImage} alt="Airline Logo" className='card mg-top' style={{height:'90px'}}/>
             <div className="card-body">
                 <h5 className='card-title'><span>{flight.flightNumber}</span></h5>

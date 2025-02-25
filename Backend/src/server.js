@@ -8,6 +8,7 @@ const errorHandler = require("./Middlewares/errorTreatmentMiddleware")
 const swaggerUi = require('swagger-ui-express')
 const swaggerJsDoc = require('swagger-jsdoc')
 const cors = require('cors')
+const axios = require('axios')
 
 
 const port = 3008
@@ -58,7 +59,6 @@ app.use(requestLogger)
 app.use(errorHandler)
 app.use("/flightManager", flightRoutes)
 app.use('/auth',authRoutes)
-
 
 async function startServer() {
     try {

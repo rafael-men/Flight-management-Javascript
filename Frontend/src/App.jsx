@@ -5,6 +5,7 @@ import './App.css'
 import Register from "./pages/Register"
 import Footer from "./components/Footer"
 import Home from "./pages/Home"
+import NewFlight from "./pages/NewFlight"
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register/>}/>
         <Route path="/home" element={<Home/>}/>
+        <Route path="/novo" element={<NewFlight/>}/>
       </Routes>
       <Footer/>
     </Router>
