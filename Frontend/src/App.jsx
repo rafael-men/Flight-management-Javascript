@@ -6,6 +6,7 @@ import Register from "./pages/Register"
 import Footer from "./components/Footer"
 import Home from "./pages/Home"
 import NewFlight from "./pages/NewFlight"
+import EditFlight from "./pages/EditFlight"
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
         <Route path="/register" element={<Register/>}/>
         <Route path="/home" element={<Home/>}/>
         <Route path="/novo" element={<NewFlight/>}/>
-      </Routes>
+        <Route path="/editar/:id" element={<EditFlight/>}/>
+        </Routes>
       <Footer/>
     </Router>
   )

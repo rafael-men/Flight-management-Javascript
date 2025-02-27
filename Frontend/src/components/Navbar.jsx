@@ -6,10 +6,10 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
-        <a className="navbar-brand text-light" href="/">
+        <p className="navbar-brand text-light mb-2">
           Gerenciamento de Vôos
           <img src={image} alt="logo" width='20' height='20' className='mx-2'/>
-        </a>
+        </p>
         <button
           className="navbar-toggler"
           type="button"

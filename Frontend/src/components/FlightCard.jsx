@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 export const FlightCard = ({flight,onDelete}) => {
     const handleDelete = async () => {
@@ -24,7 +25,9 @@ export const FlightCard = ({flight,onDelete}) => {
                 <p className="card-text">Tempo de chegada: {flight.arrivalTime}</p>
                 <p className="card-text">Condição: {flight.status}</p>
                 <p className="card-text">Assentos Disponíveis: {flight.seatsAvaliable}</p>
-                <a href="/editar" className='btn btn-primary w-100 mb-2'>Editar Condições</a>
+                <Link to={`/editar/${flight.id}`} className="btn btn-primary w-100 mb-2">
+                        Editar Condições
+                </Link>
                 <button className="btn btn-danger w-100" onClick={handleDelete}>
                      Excluir do Sistema
                </button>

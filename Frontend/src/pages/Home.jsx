@@ -59,12 +59,18 @@ const Home = () => {
         minHeight: '100vh',
         padding: '20px'
     }}>
-        <div className="d-flex justify-content-between text-white align-items-center">
-            <h1 className="mt-3">Olá {username}, seja bem vindo</h1>
-            <button className="btn btn-outline-success" onClick={handleCreateFlight}>
-                Cadastrar Novo Vôo no Sistema
-            </button>
-        </div>
+    <div className="d-flex justify-content-between text-white align-items-center">
+            <h1 className="mt-3">Olá {username}, seja bem-vindo</h1>
+          <div className="d-flex gap-2">
+              <button className="btn btn-outline-success" onClick={handleCreateFlight}>
+                   Cadastrar Novo Vôo no Sistema
+              </button>
+           <a href="/" className="btn btn-outline-danger text-decoration-none text-white">
+            Sair
+        </a>
+    </div>
+</div>
+
 
         <hr className="text-white" />
         <h1 className="text-center text-white mb-5 mt-2">Programação do dia</h1>
